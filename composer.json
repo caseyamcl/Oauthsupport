@@ -1,15 +1,15 @@
 {
     "name": "caseyamcl/Oauthsupport",
     "type": "library",
-    "description": "A set of Oauth libraries to sign requests and serve up Oauth services.  Does not include HTTP components.",
-    "keywords": ["oauth","client","authentication"],
+    "description": "A fork of vznet/oauth_2.0_client_php (https://github.com/vznet/oauth_2.0_client_php) compatible with Composer",
+    "keywords": ["oauth","oauth 2.0","client","authentication"],
     "homepage": "https://github.com/caseyamcl/Oauthsupport",
     "license": "MIT",
     "require": {
         "php": ">=5.3.0"
     },
     "autoload": {
-        "classmap": ["lib/"]
+        "psr-0": ["lib/"]
     },
     "repositories": [
         {"type": "git", "url": "http://github.com/caseyamcl/Oauthsupport"}
