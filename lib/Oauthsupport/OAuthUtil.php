@@ -59,7 +59,7 @@ class OAuthUtil {
         $key = str_replace(
             " ",
             "-",
-            ucwords(drupal_strtolower(str_replace("-", " ", $key)))
+            ucwords(strtolower(str_replace("-", " ", $key)))
           );
         $out[$key] = $value;
       }
@@ -74,14 +74,14 @@ class OAuthUtil {
         $out['Content-Type'] = $_ENV['CONTENT_TYPE'];
 
       foreach ($_SERVER as $key => $value) {
-        if (drupal_substr($key, 0, 5) == "HTTP_") {
+        if (substr($key, 0, 5) == "HTTP_") {
           // this is chaos, basically it is just there to capitalize the first
           // letter of every word that is not an initial HTTP and strip HTTP
           // code from przemek
           $key = str_replace(
             " ",
             "-",
-            ucwords(drupal_strtolower(str_replace("_", " ", drupal_substr($key, 5))))
+            ucwords(strtolower(str_replace("_", " ", substr($key, 5))))
           );
           $out[$key] = $value;
         }

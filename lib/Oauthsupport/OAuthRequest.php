@@ -67,7 +67,7 @@ class OAuthRequest {
 
       // We have a Authorization-header with OAuth data. Parse the header
       // and add those overriding any duplicates from GET or POST
-      if (isset($request_headers['Authorization']) && drupal_substr($request_headers['Authorization'], 0, 6) == 'OAuth ') {
+      if (isset($request_headers['Authorization']) && substr($request_headers['Authorization'], 0, 6) == 'OAuth ') {
         $header_parameters = OAuthUtil::split_header(
           $request_headers['Authorization']
         );
@@ -171,7 +171,7 @@ class OAuthRequest {
    * just uppercases the http method
    */
   public function get_normalized_http_method() {
-    return drupal_strtoupper($this->http_method);
+    return strtoupper($this->http_method);
   }
 
   /**
@@ -183,7 +183,7 @@ class OAuthRequest {
 
     $scheme = (isset($parts['scheme'])) ? $parts['scheme'] : 'http';
     $port = (isset($parts['port'])) ? $parts['port'] : (($scheme == 'https') ? '443' : '80');
-    $host = (isset($parts['host'])) ? drupal_strtolower($parts['host']) : '';
+    $host = (isset($parts['host'])) ? strtolower($parts['host']) : '';
     $path = (isset($parts['path'])) ? $parts['path'] : '';
 
     if (($scheme == 'https' && $port != '443')
@@ -227,7 +227,7 @@ class OAuthRequest {
 
     $total = array();
     foreach ($this->parameters as $k => $v) {
-      if (drupal_substr($k, 0, 5) != "oauth") continue;
+      if (substr($k, 0, 5) != "oauth") continue;
       if (is_array($v)) {
         throw new OAuthException('Arrays not supported in headers');
       }

@@ -38,17 +38,17 @@ abstract class OAuthSignatureMethod {
     $built = $this->build_signature($request, $consumer, $token);
 
     // Check for zero length, although unlikely here
-    if (drupal_strlen($built) == 0 || drupal_strlen($signature) == 0) {
+    if (strlen($built) == 0 || strlen($signature) == 0) {
       return FALSE;
     }
 
-    if (drupal_strlen($built) != drupal_strlen($signature)) {
+    if (strlen($built) != strlen($signature)) {
       return FALSE;
     }
 
     // Avoid a timing leak with a (hopefully) time insensitive compare
     $result = 0;
-    for ($i = 0; $i < drupal_strlen($signature); $i++) {
+    for ($i = 0; $i < strlen($signature); $i++) {
       $result |= ord($built{$i}) ^ ord($signature{$i});
     }
 
