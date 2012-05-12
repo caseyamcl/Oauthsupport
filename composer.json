@@ -1,7 +1,7 @@
 {
     "name": "caseyamcl/Oauthsupport",
     "type": "library",
-    "description": "A fork of vznet/oauth_2.0_client_php (https://github.com/vznet/oauth_2.0_client_php) compatible with Composer",
+    "description": "A fork of adoy/PHP-OAuth2 (https://github.com/adoy/PHP-OAuth2) compatible with Composer",
     "keywords": ["oauth","oauth 2.0","client","authentication"],
     "homepage": "https://github.com/caseyamcl/Oauthsupport",
     "license": "MIT",
