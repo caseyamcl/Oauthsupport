@@ -1,3 +1,9 @@
+                    ___________________________________
+  
+                    Light PHP wrapper for the OAuth 2.0
+                    ___________________________________
+
+
 AUTHOR & CONTACT
 ================
 
@@ -41,6 +47,8 @@ How can I use it ?
 ==================
 
 require('client.php');
+require('GrantType/IGrantType.php');
+require('GrantType/AuthorizationCode.php');
 
 const CLIENT_ID     = 'your client id';
 const CLIENT_SECRET = 'your client secret';
