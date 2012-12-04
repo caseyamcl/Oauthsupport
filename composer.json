@@ -1,9 +1,17 @@
 {
     "name": "caseyamcl/Oauthsupport",
     "type": "library",
-    "description": "A fork of adoy/PHP-OAuth2 (https://github.com/adoy/PHP-OAuth2) compatible with Composer",
+    "description": "An OAUTH 2.0 Client Library",
     "keywords": ["oauth","oauth 2.0","client","authentication"],
     "homepage": "https://github.com/caseyamcl/Oauthsupport",
+    "authors": [
+        {
+            "name":     "Casey McLaughlin",
+            "email":    "caseyamcl@gmail.com",
+            "homepage": "http://caseymclaughlin.com",
+            "role":     "Developer"
+        }
+    ],    
     "license": "MIT",
     "require": {
         "php": ">=5.3.0"
