@@ -1,31 +1,31 @@
-<?php
+<?php 
 
 namespace OAuth2\Client;
 use OAuth2\AuthService;
 
-class Google extends AuthService
+/**
+ * Facebook OAUTH 2.0 Client Class
+ */
+class Facebook extends AuthService
 {
     protected function getAuthUrl()
     {
-        return 'https://accounts.google.com/o/oauth2/auth';
+        return 'https://www.facebook.com/dialog/oauth';
     }
 
     // -------------------------------------------------------------------------
 
     protected function getTokenurl()
     {
-        return 'https://accounts.google.com/o/oauth2/token';
-    }    
+        return 'https://graph.facebook.com/oauth/access_token';
+    }
 
     // -------------------------------------------------------------------------
 
     public function getAuthorizationUrl($params = array())
     {
         $params['state'] = md5(session_id());
-        $params['response_type'] = 'code';
-        $params['access_type'] = 'online';
-        $params['approval_prompt'] = 'auto';
-        $params['scope'] = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
+        $params['scope'] = 'email';
         return parent::getAuthorizationUrl($params);
     }
 
@@ -33,25 +33,31 @@ class Google extends AuthService
 
     public function getAccessToken($code, $params = array())
     {
-        $params['grant_type'] = 'authorization_code';
+        $params['state'] = md5(session_id());
+        $params['scope'] = 'email';
+
         $resp = parent::getAccessToken($code, $params);
-        return $resp['result']['access_token'];
+        
+        parse_str($resp['result'], $info);
+        return $info['access_token'];
     }
 
     // -------------------------------------------------------------------------
 
     public function getInfo($accessToken, $params = array())
     {
-        $url = "https://www.googleapis.com/oauth2/v1/userinfo";
-
+        $url = "https://graph.facebook.com/me";
         $this->client->setAccessToken($accessToken);
         $info = $this->client->fetch($url);
 
-        return array(
-            'id'         => $info['result']['id'],
-            'first_name' => $info['result']['given_name'],
-            'last_name'  => $info['result']['family_name'],
-            'email'      => $info['result']['email']
-        );
+        $outArray = array();
+        $outArray['id'] = $info['result']['id'];
+        $outArray['first_name'] = $info['result']['first_name'];
+        $outArray['last_name'] = $info['result']['last_name'];
+        $outArray['email'] = $info['result']['email'];
+
+        return $outArray;
     }
 }
+
+/* EOF: Facebook.php */

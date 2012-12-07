@@ -38,4 +38,18 @@ Via composer/packagist:
 Usage
 -----
 
-Fill this in.
+This library includes an abstract class named 'AuthService', which can be
+extended to create OAuth 2.0 clients for specific services.
+
+As an example, a Facebook and Google class are included in the code.  These
+classes are fully functional, and can be used in production.
+
+To create your own client, create a class that extends the __Oauth2\AuthService__
+abstract class:
+
+    class MyOauthClient extends \Oauth2\AuthService
+    {
+        /**
+         * 
+         */
+    }
