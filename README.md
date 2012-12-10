@@ -50,6 +50,35 @@ abstract class:
     class MyOauthClient extends \Oauth2\AuthService
     {
         /**
+         * Get the Authorization URL
          * 
+         * @return string
          */
+        public function getAuthUrl()
+        {
+            return "http://SOME/URL/To/Authorization/Endpoint";
+        }
+
+        /**
+         * Get the token URL
+         * 
+         * @return string
+         */
+        public function getTokenUrl()
+        {
+            return "http://SOME/URL/To/Token/Endpoint";
+        }
+
+        /**
+         * Get info once logged-in
+         * 
+         * @param string $accessToken
+         * @return array  Array of info
+         */
+        public function getInfo($accessToken)
+        {
+            $infoUrl = 'http://SOME/URL/To/Api/Stuff';
+            $this->client->setAccessToken($accessToken);
+            return $this->client->get($infoUrl);
+        }        
     }

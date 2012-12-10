@@ -15,7 +15,7 @@ class Facebook extends AuthService
 
     // -------------------------------------------------------------------------
 
-    protected function getTokenurl()
+    protected function getTokenUrl()
     {
         return 'https://graph.facebook.com/oauth/access_token';
     }
@@ -44,7 +44,7 @@ class Facebook extends AuthService
 
     // -------------------------------------------------------------------------
 
-    public function getInfo($accessToken, $params = array())
+    public function getInfo($accessToken)
     {
         $url = "https://graph.facebook.com/me";
         $this->client->setAccessToken($accessToken);

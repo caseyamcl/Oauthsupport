@@ -15,7 +15,7 @@ class Google extends AuthService
 
     // -------------------------------------------------------------------------
 
-    protected function getTokenurl()
+    protected function getTokenUrl()
     {
         return 'https://accounts.google.com/o/oauth2/token';
     }    
@@ -43,7 +43,7 @@ class Google extends AuthService
 
     // -------------------------------------------------------------------------
 
-    public function getInfo($accessToken, $params = array())
+    public function getInfo($accessToken)
     {
         $url = "https://www.googleapis.com/oauth2/v1/userinfo";
 

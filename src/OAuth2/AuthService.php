@@ -46,10 +46,9 @@ abstract class AuthService
      * (see Entities\User.php for other values)
      *
      * @param string $accessToken
-     * @param array $params  Optional array of key/value query parameters to send
      * @return array
      */
-    abstract public function getInfo($accessToken, $params = array());
+    abstract public function getInfo($accessToken);
 
     // -------------------------------------------------------------------------
 
@@ -59,15 +58,6 @@ abstract class AuthService
      * @return string
      */
     abstract protected function getAuthUrl();
-
-    // -------------------------------------------------------------------------
-
-    /** 
-     * Return redirect URL
-     *
-     * @return string
-     */
-    abstract protected function getRedirectUrl();
 
     // -------------------------------------------------------------------------
 
@@ -107,7 +97,7 @@ abstract class AuthService
      */
     public function getAccessToken($code, $params = array())
     {
-        $params['code'] = $code;
+        $params['code']         = $code;
         $params['redirect_uri'] = $this->redirectUrl;
 
         $response = $this->client->getAccessToken($this->getTokenUrl(), 'authorization_code', $params);
