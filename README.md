@@ -1,6 +1,11 @@
 OAuth Support
 =============
 
+**!! NOTICE !!:** This package has been abandoned. The author recommends you use [league/oauth2-client](https://packagist.org/packages/league/oauth2-client)
+instead
+
+---
+
 An OAuth 2.0 client library (draft 10 / specification 1),
 forked from https://github.com/vznet/oauth_2.0_client_php,
 written by Charron Pierrick and Berejeb Anis
