@@ -1,5 +1,5 @@
 {
-    "name": "caseyamcl/Oauthsupport",
+    "name": "caseyamcl/oauthsupport",
     "type": "library",
     "description": "An OAUTH 2.0 Client Library",
     "keywords": ["oauth","oauth 2.0","client","authentication"],
@@ -8,7 +8,7 @@
         {
             "name":     "Casey McLaughlin",
             "email":    "caseyamcl@gmail.com",
-            "homepage": "http://caseymclaughlin.com",
+            "homepage": "https://caseymclaughlin.com",
             "role":     "Developer"
         }
     ],    
